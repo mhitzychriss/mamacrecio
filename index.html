@@ -1,27 +1,218 @@
-// Menú móvil: abre y cierra la navegación
-const toggle = document.getElementById("menuToggle");
-const nav = document.getElementById("nav");
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mamá Creció | Ser mamá no significa renunciar a tus sueños</title>
+  <meta name="description" content="Mamá Creció es una iniciativa de impacto social que impulsa el desarrollo personal, educativo, profesional y económico de las madres.">
+  <link rel="icon" href="images/logo.jpg">
 
-toggle.addEventListener("click", () => {
-  const abierto = nav.classList.toggle("open");
-  toggle.setAttribute("aria-expanded", abierto);
-  toggle.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
-});
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
-// Cierra el menú al elegir una sección
-nav.querySelectorAll("a").forEach((enlace) => {
-  enlace.addEventListener("click", () => {
-    nav.classList.remove("open");
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-label", "Abrir menú");
-  });
-});
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-// Línea sutil bajo el header al hacer scroll
-const header = document.getElementById("header");
-window.addEventListener("scroll", () => {
-  header.classList.toggle("scrolled", window.scrollY > 10);
-});
+  <!-- ========== 1. INICIO ========== -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand" aria-label="Mamá Creció, ir al inicio">
+        <img src="images/logo.jpg" alt="Logo de Mamá Creció">
+      </a>
 
-// Año automático en el footer
-document.getElementById("year").textContent = new Date().getFullYear();
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#quienes-somos">Quiénes somos</a>
+        <a href="#pilares">Nuestros pilares</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#comunidad">Comunidad</a>
+        <a href="#alianzas">Alianzas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Ser mamá no significa renunciar a tus sueños</h1>
+          <p class="lead">
+            Mamá Creció es una iniciativa de impacto social que impulsa el desarrollo personal,
+            educativo, profesional y económico de las madres, conectándolas con información,
+            herramientas y oportunidades para seguir creciendo.
+          </p>
+          <div class="hero-actions">
+            <a href="#pilares" class="btn btn-primary">Conoce nuestros pilares</a>
+            <a href="#quienes-somos" class="btn btn-ghost">Quiénes somos</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <!-- Reemplaza images/hero.jpg por tu fotografía principal -->
+          <div class="photo photo-hero" role="img" aria-label="Madre trabajando y aprendiendo con su laptop"></div>
+          <div class="hero-badge">
+            <img src="images/logo.jpg" alt="">
+            <p>Un podcast y una comunidad para madres que siguen creciendo</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 2. QUIÉNES SOMOS ========== -->
+    <section class="section about" id="quienes-somos">
+      <div class="container about-grid">
+        <div class="photo photo-about" role="img" aria-label="Mujeres conversando y compartiendo experiencias"></div>
+
+        <div class="about-text">
+          <h2>Quiénes somos</h2>
+          <p>
+            Mamá Creció es una iniciativa que conecta a las madres con información, herramientas,
+            conocimientos y oportunidades para continuar desarrollándose, sin dejar de lado
+            lo que significa ser mamá.
+          </p>
+
+          <div class="about-points">
+            <article>
+              <h3>Propósito</h3>
+              <p>Acompañar a las madres para que sus metas personales, educativas y profesionales sigan avanzando en cada etapa de su vida.</p>
+            </article>
+            <article>
+              <h3>Misión</h3>
+              <p>Facilitar el acceso a recursos, aprendizajes y redes de apoyo que impulsen el crecimiento y la independencia económica de las madres.</p>
+            </article>
+            <article>
+              <h3>Visión</h3>
+              <p>Ser una comunidad de referencia donde cada mamá encuentre inspiración y oportunidades para hacer realidad sus sueños.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 3. NUESTROS PILARES ========== -->
+    <section class="section pillars" id="pilares">
+      <div class="container">
+        <div class="section-head">
+          <h2>Nuestros pilares</h2>
+          <p>Cuatro caminos para que cada mamá avance a su ritmo.</p>
+        </div>
+
+        <div class="pillars-grid">
+          <article class="card card-aprende">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 16 24 7l20 9-20 9L4 16Z"/><path d="M12 21v10c0 3 6 6 12 6s12-3 12-6V21"/><path d="M44 16v12"/></svg>
+            <h3>Aprende</h3>
+            <p>Cursos, talleres, capacitaciones y recursos educativos para seguir estudiando y ampliando conocimientos.</p>
+          </article>
+
+          <article class="card card-crece">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 40h36"/><path d="M10 32l9-9 7 7 12-14"/><path d="M30 16h8v8"/></svg>
+            <h3>Crece</h3>
+            <p>Orientación profesional, empleabilidad y desarrollo de habilidades para dar el siguiente paso en tu carrera.</p>
+          </article>
+
+          <article class="card card-emprende">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6c8 4 12 12 10 22l-8 6-8-6C16 18 18 10 24 6Z"/><circle cx="24" cy="19" r="3"/><path d="M16 30l-6 8 9-2M32 30l6 8-9-2"/></svg>
+            <h3>Emprende</h3>
+            <p>Herramientas para emprender, educación financiera y desarrollo de proyectos propios.</p>
+          </article>
+
+          <article class="card card-conecta">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="14" cy="16" r="5"/><circle cx="34" cy="16" r="5"/><circle cx="24" cy="34" r="5"/><path d="M18 19l4 11M30 19l-4 11M19 16h10"/></svg>
+            <h3>Conecta</h3>
+            <p>Comunidad, networking, historias reales y alianzas que nos acompañan en el camino.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 4. RECURSOS Y CONTENIDOS ========== -->
+    <section class="section resources" id="recursos">
+      <div class="container">
+        <div class="section-head">
+          <h2>Recursos y contenidos</h2>
+          <p>Estas son las líneas de contenido que forman parte de Mamá Creció.</p>
+        </div>
+
+        <div class="resources-grid">
+          <article class="resource resource-podcast">
+            <img src="images/logo.jpg" alt="" class="resource-logo">
+            <div>
+              <h3>Podcast Mamá Creció</h3>
+              <p>Conversaciones sobre maternidad, desarrollo personal y profesional, pensadas para acompañar a las madres en su crecimiento.</p>
+            </div>
+          </article>
+
+          <article class="resource">
+            <h3>Historias e inspiración</h3>
+            <p>Relatos de mujeres y madres que nos recuerdan que es posible seguir adelante con sus metas.</p>
+          </article>
+
+          <article class="resource">
+            <h3>Educación y desarrollo profesional</h3>
+            <p>Contenidos para aprender nuevas habilidades, orientarse laboralmente y fortalecer el perfil profesional.</p>
+          </article>
+
+          <article class="resource">
+            <h3>Emprendimiento y oportunidades</h3>
+            <p>Ideas, herramientas y oportunidades para quienes desean iniciar o hacer crecer su propio proyecto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 5. COMUNIDAD Y OPORTUNIDADES ========== -->
+    <section class="section community" id="comunidad">
+      <div class="container community-grid">
+        <div class="community-text">
+          <h2>Esta comunidad también es tuya</h2>
+          <p>
+            Mamá Creció está pensada para madres que quieren seguir aprendiendo, trabajando y soñando.
+            Acompáñanos, sigue nuestras redes y mantente atenta a las próximas actividades,
+            contenidos y oportunidades que iremos compartiendo.
+          </p>
+          <a href="#footer" class="btn btn-light">Encuentra nuestras redes</a>
+        </div>
+        <div class="photo photo-community" role="img" aria-label="Grupo de mujeres sonriendo en una actividad comunitaria"></div>
+      </div>
+    </section>
+
+    <!-- ========== 6. ALIANZAS Y COLABORACIONES ========== -->
+    <section class="section alliances" id="alianzas">
+      <div class="container alliances-box">
+        <h2>Alianzas y colaboraciones</h2>
+        <p>
+          Invitamos a organizaciones, instituciones, empresas y profesionales a sumarse a Mamá Creció
+          y crear juntos más oportunidades de aprendizaje, empleo y emprendimiento para las madres.
+        </p>
+        <a href="https://www.instagram.com/mamacrecio/" class="btn btn-primary" target="_blank" rel="noopener">Escríbenos por Instagram</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== 7. FOOTER ========== -->
+  <footer class="footer" id="footer">
+    <div class="container footer-inner">
+      <img src="images/logo.jpg" alt="Logo de Mamá Creció" class="footer-logo">
+      <p class="footer-phrase">Donde los sueños de mamá también pueden hacerse realidad</p>
+
+      <ul class="social">
+        <li><a href="https://www.instagram.com/mamacrecio/" target="_blank" rel="noopener">Instagram</a></li>
+        <!-- Reemplaza el "#" por la URL real cuando la tengas -->
+        <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="#" target="_blank" rel="noopener">TikTok</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Spotify</a></li>
+      </ul>
+
+      <p class="copy">&copy; <span id="year">2026</span> Mamá Creció. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
